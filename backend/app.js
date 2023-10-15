@@ -10,9 +10,9 @@ app.use(express.json());
 // connect to database
 connectToDatabase();
 
-app.get('/', (req, res) => {
-    res.send('Hello invoice did you work?');
-});
+// Routes
+const invoiceRoutes = require('./routes/invoiceRoute')
+app.use('/api/invoices', invoiceRoutes);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
